@@ -7,7 +7,7 @@
   <title>Save Tuba: Sustainability starts young.</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@700;800;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Playpen+Sans:wght@700;800&family=Geologica:wght@400;500;600&display=swap" rel="stylesheet" />
   <link rel="icon" type="image/png" href="SaveTubaFavicon.png" />
   <link rel="stylesheet" href="styles.css" />
 </head>
@@ -21,18 +21,23 @@
       </a>
 
       <ul class="nav-links">
-        <li><a href="#app">The App</a></li>
-        <li><a href="publications.html">Publications</a></li>
-        <li><a href="blog.html">Blog</a></li>
-        <li><a href="team.html">Team</a></li>
-        <li><a href="privacy-policy.html">Privacy Policy</a></li>
+        <li><a href="#app" data-i18n="nav-app">The App</a></li>
+        <li><a href="publications" data-i18n="nav-publications">Publications</a></li>
+        <li><a href="blog" data-i18n="nav-blog">Blog</a></li>
+        <li><a href="team" data-i18n="nav-team">Team</a></li>
+        <li><a href="privacy-policy" data-i18n="nav-privacy">Privacy Policy</a></li>
       </ul>
 
-
-
-      <button class="nav-mobile-toggle" aria-label="Open menu">
-        <span></span><span></span><span></span>
-      </button>
+      <div class="nav-right">
+        <div class="lang-toggle">
+          <button class="lang-btn active" data-lang="en">EN</button>
+          <button class="lang-btn" data-lang="kz">KZ</button>
+          <button class="lang-btn" data-lang="ru">RU</button>
+        </div>
+        <button class="nav-mobile-toggle" aria-label="Open menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
     </div>
   </nav>
 
@@ -41,8 +46,8 @@
     <div class="hero-inner">
 
       <div class="hero-content">
-        <span class="hero-eyebrow">🌿 Now in pilot</span>
-        <h1 class="hero-title">
+        <span class="hero-eyebrow" data-i18n="hero-eyebrow">🌿 Now in pilot</span>
+        <h1 class="hero-title" data-i18n-html="hero-title">
           Sustainability<br>
           <span class="highlight">starts young.</span>
         </h1>
@@ -68,9 +73,9 @@
     <div class="container">
 
       <div class="problem-header">
-        <span class="section-label">The Challenge</span>
-        <h2>Almaty's environmental crisis needs a new generation of change-makers.</h2>
-        <p>
+        <span class="section-label" data-i18n="problem-label">The Challenge</span>
+        <h2 data-i18n="problem-heading">Almaty's environmental crisis needs a new generation of change-makers.</h2>
+        <p data-i18n="problem-body">
           Decades of urban migration have strained Almaty's infrastructure.
           Despite massive public investment, recycling rates remain critically low,
           and habits must be built early.
@@ -80,15 +85,15 @@
       <div class="problem-stats">
         <div class="stat-card">
           <div class="stat-number">$500M</div>
-          <div class="stat-label">Invested in recycling infrastructure in Kazakhstan over 15 years</div>
+          <div class="stat-label" data-i18n="stat1-label">Invested in recycling infrastructure in Kazakhstan over 15 years</div>
         </div>
         <div class="stat-card">
           <div class="stat-number stat-warn">11%</div>
-          <div class="stat-label">Of municipal solid waste actually recycled today</div>
+          <div class="stat-label" data-i18n="stat2-label">Of municipal solid waste actually recycled today</div>
         </div>
         <div class="stat-card">
           <div class="stat-number">8</div>
-          <div class="stat-label">Schools participating in our 2026 Almaty pilot</div>
+          <div class="stat-label" data-i18n="stat3-label">Schools participating in our 2026 Almaty pilot</div>
         </div>
       </div>
 
@@ -101,9 +106,9 @@
     <div class="container">
 
       <div class="features-header">
-        <span class="section-label">What Is Save Tuba?</span>
-        <h2>Learning that feels like play.</h2>
-        <p>
+        <span class="section-label" data-i18n="features-label">What Is Save Tuba?</span>
+        <h2 data-i18n="features-heading">Learning that feels like play.</h2>
+        <p data-i18n="features-body">
           A mobile game built with teachers, curriculum experts, and
           the Kazakhstan Ministry of Education, designed for the classroom
           and for home.
@@ -122,8 +127,8 @@
             </svg>
           </div>
           <div>
-            <h3>Gamified Lessons</h3>
-            <p>
+            <h3 data-i18n="feature1-heading">Gamified Lessons</h3>
+            <p data-i18n="feature1-body">
               Quizzes, sorting games, image-based challenges, and story-driven
               missions organized by grade, chapter, and lesson, keeping
               students engaged from start to finish.
@@ -133,17 +138,16 @@
 
         <div class="feature-card">
           <div class="feature-icon earth">
-            <!-- Ages icon -->
             <svg viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <circle cx="10" cy="10" r="5" fill="#C97D2E"/>
-              <circle cx="19" cy="10" r="4" fill="#E9C46A"/>
-              <path d="M2 22c0-4 3.6-7 8-7s8 3 8 7" stroke="#C97D2E" stroke-width="2" stroke-linecap="round"/>
-              <path d="M19 15c2.5 0 5 1.5 5 4" stroke="#E9C46A" stroke-width="2" stroke-linecap="round"/>
+              <circle cx="10" cy="10" r="5" fill="#40916C"/>
+              <circle cx="19" cy="10" r="4" fill="#74C69D"/>
+              <path d="M2 22c0-4 3.6-7 8-7s8 3 8 7" stroke="#40916C" stroke-width="2" stroke-linecap="round"/>
+              <path d="M19 15c2.5 0 5 1.5 5 4" stroke="#74C69D" stroke-width="2" stroke-linecap="round"/>
             </svg>
           </div>
           <div>
-            <h3>Built for Ages 8–11</h3>
-            <p>
+            <h3 data-i18n="feature2-heading">Built for Ages 8–11</h3>
+            <p data-i18n="feature2-body">
               Curriculum aligned with Kazakhstan's primary school grades,
               developed with Abai KazNPU, the country's leading teacher
               training university.
@@ -153,16 +157,15 @@
 
         <div class="feature-card">
           <div class="feature-icon blue">
-            <!-- Trilingual icon -->
             <svg viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <circle cx="14" cy="14" r="11" stroke="#3B82F6" stroke-width="2"/>
-              <ellipse cx="14" cy="14" rx="5" ry="11" stroke="#3B82F6" stroke-width="2"/>
-              <path d="M3 14h22M5 9h18M5 19h18" stroke="#3B82F6" stroke-width="1.5" stroke-linecap="round"/>
+              <circle cx="14" cy="14" r="11" stroke="#40916C" stroke-width="2"/>
+              <ellipse cx="14" cy="14" rx="5" ry="11" stroke="#40916C" stroke-width="2"/>
+              <path d="M3 14h22M5 9h18M5 19h18" stroke="#40916C" stroke-width="1.5" stroke-linecap="round"/>
             </svg>
           </div>
           <div>
-            <h3>Kazakh, Russian &amp; English</h3>
-            <p>
+            <h3 data-i18n="feature3-heading">Kazakh, Russian &amp; English</h3>
+            <p data-i18n="feature3-body">
               Fully trilingual, students and teachers switch languages
               seamlessly. Built to serve Kazakhstan's multilingual
               classroom reality.
@@ -173,13 +176,13 @@
         <div class="feature-card">
           <div class="feature-icon purple">
             <svg viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M6 11h2l2-3h8l2 3h2a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-8a2 2 0 0 1 2-2z" stroke="#7C3AED" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-              <circle cx="14" cy="16" r="3" stroke="#7C3AED" stroke-width="2"/>
+              <path d="M6 11h2l2-3h8l2 3h2a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-8a2 2 0 0 1 2-2z" stroke="#40916C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <circle cx="14" cy="16" r="3" stroke="#40916C" stroke-width="2"/>
             </svg>
           </div>
           <div>
-            <h3>Learning by Doing</h3>
-            <p>
+            <h3 data-i18n="feature4-heading">Learning by Doing</h3>
+            <p data-i18n="feature4-body">
               From multiple choice and matching games to photographing
               real-world evidence, every activity is hands-on, making
               sustainable habits stick through action, not repetition.
@@ -197,9 +200,9 @@
     <div class="container">
 
       <div class="screenshots-header">
-        <span class="section-label">Inside the App</span>
-        <h2>See Tuba in action.</h2>
-        <p>
+        <span class="section-label" data-i18n="screenshots-label">Inside the App</span>
+        <h2 data-i18n="screenshots-heading">See Tuba in action.</h2>
+        <p data-i18n="screenshots-body">
           Designed for 8–11 year olds, Save Tuba's interface is intuitive,
           colorful, and built for both classroom tablets and personal phones.
         </p>
@@ -213,7 +216,7 @@
           <div class="phone-screen">
             <img src="images/screenshots/Sorting.png" alt="Choose the right answer activity" class="phone-screenshot">
             <div class="phone-notch"><div class="phone-notch-pill"></div></div>
-            <span class="phone-screen-label">Choose the Answer</span>
+            <span class="phone-screen-label" data-i18n="screen1-label">Choose the Answer</span>
           </div>
         </div>
 
@@ -221,7 +224,7 @@
           <div class="phone-screen">
             <img src="images/screenshots/Memory.png" alt="Matching game activity" class="phone-screenshot">
             <div class="phone-notch"><div class="phone-notch-pill"></div></div>
-            <span class="phone-screen-label">Matching Game</span>
+            <span class="phone-screen-label" data-i18n="screen2-label">Matching Game</span>
           </div>
         </div>
 
@@ -229,7 +232,7 @@
           <div class="phone-screen">
             <img src="images/screenshots/Mastery.png" alt="Mastery upload activity" class="phone-screenshot">
             <div class="phone-notch"><div class="phone-notch-pill"></div></div>
-            <span class="phone-screen-label">Mastery Challenge</span>
+            <span class="phone-screen-label" data-i18n="screen3-label">Mastery Challenge</span>
           </div>
         </div>
 
@@ -244,24 +247,24 @@
     <div class="container">
 
       <div class="how-header">
-        <h2>How It Works</h2>
+        <h2 data-i18n="how-heading">How It Works</h2>
       </div>
 
       <div class="steps">
 
         <div class="step">
           <div class="step-number">1</div>
-          <h3>Download</h3>
-          <p>
+          <h3 data-i18n="step1-heading">Download</h3>
+          <p data-i18n="step1-body">
             Available on the App Store and Google Play. Works on phones and tablets.
-            Available on phones and tablets. Quick account setup for everyone.
+            Quick account setup for everyone.
           </p>
         </div>
 
         <div class="step">
           <div class="step-number">2</div>
-          <h3>Learn &amp; Play</h3>
-          <p>
+          <h3 data-i18n="step2-heading">Learn &amp; Play</h3>
+          <p data-i18n="step2-body">
             Students follow Tuba through lessons, stories, and minigames
             at their own pace, in Kazakh, Russian, or English.
           </p>
@@ -269,8 +272,8 @@
 
         <div class="step">
           <div class="step-number">3</div>
-          <h3>Track &amp; Act</h3>
-          <p>
+          <h3 data-i18n="step3-heading">Track &amp; Act</h3>
+          <p data-i18n="step3-body">
             Teachers monitor class progress from a dashboard. Students see
             their impact grow and bring sustainable habits home.
           </p>
@@ -284,13 +287,13 @@
   <!-- ===== DOWNLOAD SECTION ===== -->
   <section id="download" style="background: var(--green-primary); padding: 80px 0;">
     <div class="container" style="text-align: center;">
-      <span class="section-label" style="color: var(--green-pale);">Available Soon</span>
-      <h2 style="color: var(--white); margin-bottom: 16px;">Get Save Tuba on your device.</h2>
-      <p style="color: rgba(255,255,255,0.75); max-width: 440px; margin: 0 auto 36px; font-size: 1.05rem;">
-        Currently in TestFlight beta. Full launch on the App Store and Google Play coming in 2026.
+      <span class="section-label" style="color: var(--green-pale);" data-i18n="download-label">Now Available</span>
+      <h2 style="color: var(--white); margin-bottom: 16px;" data-i18n="download-heading">Get Save Tuba on your device.</h2>
+      <p style="color: rgba(255,255,255,0.75); max-width: 440px; margin: 0 auto 36px; font-size: 1.05rem;" data-i18n="download-body">
+        Available on the App Store and Google Play.
       </p>
       <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
-        <a href="https://developer.apple.com/testflight/" target="_blank" rel="noopener" class="btn" style="background: var(--white); color: var(--green-dark); font-family: 'Nunito', sans-serif; font-weight: 800; gap: 10px;">
+        <a href="https://apps.apple.com/us/app/save-tuba/id6739007851" target="_blank" rel="noopener" class="btn" style="background: var(--white); color: var(--green-dark); font-family: 'Nunito', sans-serif; font-weight: 800; gap: 10px;">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
             <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
           </svg>
@@ -304,7 +307,7 @@
         </a>
       </div>
       <p style="margin-top: 20px; color: rgba(255,255,255,0.5); font-size: 0.82rem;">
-        Interested in joining the beta? Email us at
+        <span data-i18n="download-beta">Interested in joining the beta? Email us at</span>
         <a href="mailto:savetuba2023@gmail.com" style="color: var(--green-pale); font-weight: 600;">savetuba2023@gmail.com</a>
       </p>
     </div>
@@ -315,9 +318,9 @@
     <div class="container">
 
       <div class="partners-header">
-        <span class="section-label">Partners &amp; Backers</span>
-        <h2>Built with world-class institutions.</h2>
-        <p>
+        <span class="section-label" data-i18n="partners-label">Partners &amp; Backers</span>
+        <h2 data-i18n="partners-heading">Built with world-class institutions.</h2>
+        <p data-i18n="partners-body">
           Save Tuba is backed by universities, government partners, and
           education researchers across the US and Kazakhstan.
         </p>
@@ -329,28 +332,28 @@
           <div class="partner-logo"><img src="images/schools/Lehigh.png" alt="Lehigh University"></div>
           <div class="partner-name">Lehigh University</div>
           <div class="partner-country">USA</div>
-          <div class="partner-role">GSIF Global Social Impact Fellowship, institutional backer &amp; development home base</div>
+          <div class="partner-role" data-i18n="partner1-role">GSIF Global Social Impact Fellowship, institutional backer &amp; development home base</div>
         </div>
 
         <div class="partner-card">
           <div class="partner-logo"><img src="images/schools/Abai.png" alt="Abai Kazakh National Pedagogical University"></div>
           <div class="partner-name">Abai Kazakh National Pedagogical University</div>
           <div class="partner-country">Kazakhstan</div>
-          <div class="partner-role">Curriculum development, research methodology &amp; school network access</div>
+          <div class="partner-role" data-i18n="partner2-role">Curriculum development, research methodology &amp; school network access</div>
         </div>
 
         <div class="partner-card">
           <div class="partner-logo"><img src="images/schools/AlmaU.jpg" alt="Almaty Management University"></div>
           <div class="partner-name">Almaty Management University</div>
           <div class="partner-country">Kazakhstan</div>
-          <div class="partner-role">In-country host, student volunteers, translation &amp; external relations</div>
+          <div class="partner-role" data-i18n="partner3-role">In-country host, student volunteers, translation &amp; external relations</div>
         </div>
 
         <div class="partner-card">
           <div class="partner-logo"><img src="images/schools/MinistryOfEducation.svg" alt="Ministry of Education"></div>
           <div class="partner-name">Ministry of Education</div>
           <div class="partner-country">Kazakhstan</div>
-          <div class="partner-role">Government approval, access to public schools &amp; program legitimacy</div>
+          <div class="partner-role" data-i18n="partner4-role">Government approval, access to public schools &amp; program legitimacy</div>
         </div>
 
       </div>
@@ -364,11 +367,10 @@
 
       <div class="blog-header">
         <div class="blog-header-text">
-          <span class="section-label">From the Blog</span>
-          <h2>Latest from Save Tuba</h2>
-          <p>News, research, and updates from our team in Almaty and Bethlehem.</p>
+          <span class="section-label" data-i18n="blog-label">From the Blog</span>
+          <h2 data-i18n="blog-heading">Latest from Save Tuba</h2>
         </div>
-        <a href="blog.html" class="btn btn-outline btn-sm">View all posts →</a>
+        <a href="blog" class="btn btn-outline btn-sm" data-i18n="blog-view-all">View all posts →</a>
       </div>
 
       <div class="blog-grid" id="home-blog-grid"></div>
@@ -388,7 +390,7 @@
                  onerror="this.style.display='none'" />
             <span class="nav-logo-text">Save Tuba</span>
           </a>
-          <p class="footer-brand-desc">
+          <p class="footer-brand-desc" data-i18n="footer-blurb">
             A Lehigh University Global Social Impact Fellowship project, available in Kazakh, Russian, and English.
           </p>
           <div class="footer-contact">
@@ -398,22 +400,22 @@
         </div>
 
         <div>
-          <div class="footer-col-title">Navigate</div>
+          <div class="footer-col-title" data-i18n="footer-nav-title">Navigate</div>
           <ul class="footer-links">
-            <li><a href="#app">The App</a></li>
-            <li><a href="publications.html">Publications</a></li>
-            <li><a href="blog.html">Blog</a></li>
-            <li><a href="team.html">Team &amp; Partners</a></li>
-            <li><a href="#download">Download</a></li>
+            <li><a href="#app" data-i18n="nav-app">The App</a></li>
+            <li><a href="publications" data-i18n="nav-publications">Publications</a></li>
+            <li><a href="blog" data-i18n="nav-blog">Blog</a></li>
+            <li><a href="team" data-i18n="footer-team-partners">Team &amp; Partners</a></li>
+            <li><a href="#download" data-i18n="footer-download">Download</a></li>
           </ul>
         </div>
 
         <div>
-          <div class="footer-col-title">Resources</div>
+          <div class="footer-col-title" data-i18n="footer-resources-title">Resources</div>
           <ul class="footer-links">
-            <li><a href="privacy-policy.html">Privacy Policy</a></li>
-            <li><a href="https://github.com/SaveTubaTeam/saveTuba" target="_blank" rel="noopener">GitHub</a></li>
-            <li><a href="mailto:savetuba2023@gmail.com">Contact Us</a></li>
+            <li><a href="privacy-policy" data-i18n="nav-privacy">Privacy Policy</a></li>
+
+            <li><a href="mailto:savetuba2023@gmail.com" data-i18n="footer-contact-link">Contact Us</a></li>
             <li><a href="https://www.instagram.com/save_tuba" target="_blank" rel="noopener">Instagram</a></li>
           </ul>
         </div>
@@ -421,9 +423,9 @@
       </div>
 
       <div class="footer-bottom">
-        <p>© 2026 Save Tuba. Developed by Lehigh University GSIF.</p>
+        <p data-i18n="footer-copyright">© 2026 Save Tuba. Developed by Lehigh University GSIF.</p>
         <div class="footer-bottom-links">
-          <a href="privacy-policy.html">Privacy Policy</a>
+          <a href="privacy-policy">Privacy Policy</a>
           <a href="mailto:savetuba2023@gmail.com">Contact</a>
         </div>
       </div>
@@ -431,6 +433,7 @@
     </div>
   </footer>
 
+<script src="translations.js"></script>
 <script>
 document.querySelector('.nav-mobile-toggle').addEventListener('click', function() {
     document.querySelector('.nav-links').classList.toggle('open');

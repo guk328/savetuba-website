@@ -32,7 +32,7 @@
 html { scroll-behavior: smooth; }
 
 body {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Geologica', sans-serif;
   font-size: 16px;
   line-height: 1.65;
   color: var(--text);
@@ -46,7 +46,7 @@ ul { list-style: none; }
 
 /* ===== TYPOGRAPHY ===== */
 h1, h2, h3, h4 {
-  font-family: 'Nunito', sans-serif;
+  font-family: 'Playpen Sans', sans-serif;
   font-weight: 800;
   line-height: 1.2;
   color: var(--green-dark);
@@ -83,7 +83,7 @@ h3 { font-size: clamp(1.1rem, 2vw, 1.4rem); }
   gap: 8px;
   padding: 14px 28px;
   border-radius: var(--radius-xl);
-  font-family: 'Nunito', sans-serif;
+  font-family: 'Playpen Sans', sans-serif;
   font-size: 1rem;
   font-weight: 700;
   cursor: pointer;
@@ -127,6 +127,32 @@ h3 { font-size: clamp(1.1rem, 2vw, 1.4rem); }
   font-size: 0.9rem;
 }
 
+/* ===== LANGUAGE TOGGLE ===== */
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.lang-toggle {
+  display: flex;
+  gap: 2px;
+}
+.lang-btn {
+  background: none;
+  border: 1px solid rgba(255,255,255,0.25);
+  color: rgba(255,255,255,0.6);
+  padding: 4px 9px;
+  border-radius: 6px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  transition: all 0.15s;
+  font-family: 'Geologica', sans-serif;
+}
+.lang-btn:hover { background: rgba(255,255,255,0.12); color: var(--white); }
+.lang-btn.active { background: rgba(255,255,255,0.18); color: var(--white); border-color: rgba(255,255,255,0.5); }
+
 /* ===== NAVIGATION ===== */
 .nav {
   position: fixed;
@@ -165,7 +191,7 @@ h3 { font-size: clamp(1.1rem, 2vw, 1.4rem); }
 }
 
 .nav-logo-text {
-  font-family: 'Nunito', sans-serif;
+  font-family: 'Playpen Sans', sans-serif;
   font-weight: 800;
   font-size: 1.25rem;
   color: var(--white);
@@ -351,7 +377,7 @@ h3 { font-size: clamp(1.1rem, 2vw, 1.4rem); }
 
 
 .stat-card .stat-number {
-  font-family: 'Nunito', sans-serif;
+  font-family: 'Playpen Sans', sans-serif;
   font-size: 3rem;
   font-weight: 900;
   color: var(--green-primary);
@@ -441,10 +467,10 @@ h3 { font-size: clamp(1.1rem, 2vw, 1.4rem); }
   justify-content: center;
 }
 
-.feature-icon.green  { background: var(--green-pale); }
-.feature-icon.earth  { background: var(--green-pale); }
-.feature-icon.blue   { background: #E0F0FF; }
-.feature-icon.purple { background: #F0E8FF; }
+.feature-icon.green,
+.feature-icon.earth,
+.feature-icon.blue,
+.feature-icon.purple { background: var(--green-pale); }
 
 .feature-icon svg { width: 28px; height: 28px; }
 
@@ -656,7 +682,7 @@ h3 { font-size: clamp(1.1rem, 2vw, 1.4rem); }
   border-radius: 50%;
   background: var(--green-primary);
   color: var(--white);
-  font-family: 'Nunito', sans-serif;
+  font-family: 'Playpen Sans', sans-serif;
   font-size: 2rem;
   font-weight: 900;
   display: flex;
@@ -731,7 +757,7 @@ h3 { font-size: clamp(1.1rem, 2vw, 1.4rem); }
 }
 
 .partner-name {
-  font-family: 'Nunito', sans-serif;
+  font-family: 'Playpen Sans', sans-serif;
   font-weight: 800;
   font-size: 0.9rem;
   color: var(--green-dark);
@@ -898,7 +924,7 @@ h3 { font-size: clamp(1.1rem, 2vw, 1.4rem); }
 .footer-contact a:hover { color: var(--white); }
 
 .footer-col-title {
-  font-family: 'Nunito', sans-serif;
+  font-family: 'Playpen Sans', sans-serif;
   font-weight: 800;
   font-size: 0.85rem;
   color: var(--white);

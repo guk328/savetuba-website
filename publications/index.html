@@ -6,9 +6,9 @@
   <title>Publications — Save Tuba</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@700;800;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
-  <link rel="icon" type="image/png" href="SaveTubaFavicon.png" />
-  <link rel="stylesheet" href="styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Playpen+Sans:wght@700;800&family=Geologica:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="icon" type="image/png" href="../SaveTubaFavicon.png" />
+  <link rel="stylesheet" href="../styles.css" />
   <style>
     .pub-hero {
       background: linear-gradient(145deg, var(--green-dark) 0%, var(--green-primary) 100%);
@@ -82,7 +82,7 @@
     }
 
     .paper-title {
-      font-family: 'Nunito', sans-serif;
+      font-family: 'Playpen Sans', sans-serif;
       font-weight: 800;
       font-size: 1.05rem;
       color: var(--green-dark);
@@ -218,34 +218,54 @@
   <!-- ===== NAVIGATION ===== -->
   <nav class="nav">
     <div class="nav-inner">
-      <a href="index.html" class="nav-logo">
+      <a href="/" class="nav-logo">
         <span class="nav-logo-text">Save Tuba</span>
       </a>
       <ul class="nav-links">
-        <li><a href="index.html#app">The App</a></li>
-        <li><a href="publications.html" class="nav-active">Publications</a></li>
-        <li><a href="blog.html">Blog</a></li>
-        <li><a href="team.html">Team</a></li>
-        <li><a href="privacy-policy.html">Privacy Policy</a></li>
+        <li><a href="/#app" data-i18n="nav-app">The App</a></li>
+        <li><a href="../publications" class="nav-active" data-i18n="nav-publications">Publications</a></li>
+        <li><a href="../blog" data-i18n="nav-blog">Blog</a></li>
+        <li><a href="../team" data-i18n="nav-team">Team</a></li>
+        <li><a href="../privacy-policy" data-i18n="nav-privacy">Privacy Policy</a></li>
       </ul>
 
-      <button class="nav-mobile-toggle" aria-label="Open menu">
-        <span></span><span></span><span></span>
-      </button>
+      <div class="nav-right">
+        <div class="lang-toggle">
+          <button class="lang-btn active" data-lang="en">EN</button>
+          <button class="lang-btn" data-lang="kz">KZ</button>
+          <button class="lang-btn" data-lang="ru">RU</button>
+        </div>
+        <button class="nav-mobile-toggle" aria-label="Open menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
     </div>
   </nav>
 
   <!-- ===== HERO ===== -->
   <div class="pub-hero">
-    <h1>Publications</h1>
-    <p>Peer-reviewed research and design thinking behind Save Tuba.</p>
+    <h1 data-i18n="pub-heading">Publications</h1>
+    <p data-i18n="pub-subheading">Peer-reviewed research and design thinking behind Save Tuba.</p>
   </div>
 
   <div class="pub-body">
 
     <!-- ===== PAPERS ===== -->
-    <span class="pub-section-label">Peer-Reviewed Conference Proceedings</span>
+    <span class="pub-section-label" data-i18n="pub-section-label">Peer-Reviewed Conference Proceedings</span>
     <div class="paper-list">
+
+      <div class="paper-card">
+        <div class="paper-meta">
+          <span class="paper-venue">ResearchGate</span>
+          <span class="paper-year">2025</span>
+        </div>
+        <div class="paper-title">Leveraging Gamification for Developing Sustainable Behaviors: Frequently Asked Questions</div>
+        <div class="paper-authors">B. Youhana, A. Duane, K. Mehta — Lehigh University · doi: 10.5539/jsd.v18n3p135</div>
+        <div class="paper-actions">
+          <a href="https://ccsenet.org/journal/index.php/jsd/article/view/0/51641" target="_blank" rel="noopener" class="paper-link">Full Text ↗</a>
+          <a href="https://www.researchgate.net/publication/391568273_Leveraging_Gamification_for_Developing_Sustainable_Behaviors_Frequently_Asked_Questions" target="_blank" rel="noopener" class="paper-link">ResearchGate ↗</a>
+        </div>
+      </div>
 
       <div class="paper-card">
         <div class="paper-meta">
@@ -301,21 +321,21 @@
 
     <div class="blurb-row">
       <div class="blurb-text">
-        <h2>A Gamified Approach &amp; Influential Storyline</h2>
-        <p>The design of Save Tuba focuses on the employment of gamification to build digital games and immersive worlds where children not only learn key concepts, but practice sustainability. In doing so, they develop the kinds of behaviors, habits, and mindsets that will serve them for life. Empathy is a driving force for change and is encouraged through engaging storytelling and emotional engagement.</p>
+        <h2 data-i18n="blurb1-heading">A Gamified Approach &amp; Influential Storyline</h2>
+        <p data-i18n="blurb1-body">The design of Save Tuba focuses on the employment of gamification to build digital games and immersive worlds where children not only learn key concepts, but practice sustainability. In doing so, they develop the kinds of behaviors, habits, and mindsets that will serve them for life. Empathy is a driving force for change and is encouraged through engaging storytelling and emotional engagement.</p>
       </div>
       <div class="blurb-image">
-        <img src="images/publications/501c5-children-1822559-2.webp" alt="Children learning">
+        <img src="../images/publications/501c5-children-1822559-2.webp" alt="Children learning">
       </div>
     </div>
 
     <div class="blurb-row">
       <div class="blurb-text">
-        <h2>Cross-Generational Change</h2>
-        <p>To create lasting impact, a focus on creating behavioral change is imperative to foster a community of sustainability-conscious Kazakhs. The country's recent realization of the need for change and education is an opportunity to start from the ground up with Kazakhstan's youngest citizens. Educating children about sustainability education and developing habits earlier rather than later will produce a longer lasting impact.</p>
+        <h2 data-i18n="blurb2-heading">Cross-Generational Change</h2>
+        <p data-i18n="blurb2-body">To create lasting impact, a focus on creating behavioral change is imperative to foster a community of sustainability-conscious Kazakhs. The country's recent realization of the need for change and education is an opportunity to start from the ground up with Kazakhstan's youngest citizens. Educating children about sustainability education and developing habits earlier rather than later will produce a longer lasting impact.</p>
       </div>
       <div class="blurb-image">
-        <img src="images/publications/3ae02-kids-5426102-1.webp" alt="Children learning">
+        <img src="../images/publications/3ae02-kids-5426102-1.webp" alt="Children learning">
       </div>
     </div>
 
@@ -326,10 +346,10 @@
     <div class="container">
       <div class="footer-grid">
         <div class="footer-brand">
-          <a href="index.html" class="nav-logo">
+          <a href="/" class="nav-logo">
             <span class="nav-logo-text">Save Tuba</span>
           </a>
-          <p class="footer-brand-desc">
+          <p class="footer-brand-desc" data-i18n="footer-blurb">
             A Lehigh University Global Social Impact Fellowship project, available in Kazakh, Russian, and English.
           </p>
           <div class="footer-contact">
@@ -338,21 +358,21 @@
           </div>
         </div>
         <div>
-          <div class="footer-col-title">Navigate</div>
+          <div class="footer-col-title" data-i18n="footer-nav-title">Navigate</div>
           <ul class="footer-links">
-            <li><a href="index.html#app">The App</a></li>
-            <li><a href="publications.html">Publications</a></li>
-            <li><a href="blog.html">Blog</a></li>
-            <li><a href="team.html">Team &amp; Partners</a></li>
-            <li><a href="index.html#download">Download</a></li>
+            <li><a href="/#app" data-i18n="nav-app">The App</a></li>
+            <li><a href="../publications" data-i18n="nav-publications">Publications</a></li>
+            <li><a href="../blog" data-i18n="nav-blog">Blog</a></li>
+            <li><a href="../team" data-i18n="footer-team-partners">Team &amp; Partners</a></li>
+            <li><a href="/#download" data-i18n="footer-download">Download</a></li>
           </ul>
         </div>
         <div>
-          <div class="footer-col-title">Resources</div>
+          <div class="footer-col-title" data-i18n="footer-resources-title">Resources</div>
           <ul class="footer-links">
-            <li><a href="privacy-policy.html">Privacy Policy</a></li>
-            <li><a href="https://github.com/SaveTubaTeam/saveTuba" target="_blank" rel="noopener">GitHub</a></li>
-            <li><a href="mailto:savetuba2023@gmail.com">Contact Us</a></li>
+            <li><a href="../privacy-policy" data-i18n="nav-privacy">Privacy Policy</a></li>
+
+            <li><a href="mailto:savetuba2023@gmail.com" data-i18n="footer-contact-link">Contact Us</a></li>
             <li><a href="https://www.instagram.com/save_tuba" target="_blank" rel="noopener">Instagram</a></li>
           </ul>
         </div>
@@ -360,13 +380,14 @@
       <div class="footer-bottom">
         <p>© 2026 Save Tuba. Developed by Lehigh University GSIF.</p>
         <div class="footer-bottom-links">
-          <a href="privacy-policy.html">Privacy Policy</a>
+          <a href="../privacy-policy">Privacy Policy</a>
           <a href="mailto:savetuba2023@gmail.com">Contact</a>
         </div>
       </div>
     </div>
   </footer>
 
+  <script src="../translations.js"></script>
   <script>
     document.querySelector('.nav-mobile-toggle').addEventListener('click', function() {
       document.querySelector('.nav-links').classList.toggle('open');

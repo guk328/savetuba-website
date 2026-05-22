@@ -6,9 +6,9 @@
   <title>Privacy Policy — Save Tuba</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@700;800;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
-  <link rel="icon" type="image/png" href="SaveTubaFavicon.png" />
-  <link rel="stylesheet" href="styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Playpen+Sans:wght@700;800&family=Geologica:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="icon" type="image/png" href="../SaveTubaFavicon.png" />
+  <link rel="stylesheet" href="../styles.css" />
   <style>
     .policy-hero {
       background: linear-gradient(145deg, var(--green-dark) 0%, var(--green-primary) 100%);
@@ -33,7 +33,7 @@
     }
     .lang-tab {
       padding: 10px 20px;
-      font-family: 'Nunito', sans-serif;
+      font-family: 'Playpen Sans', sans-serif;
       font-weight: 800;
       font-size: 0.9rem;
       color: var(--text-muted);
@@ -65,7 +65,7 @@
       font-size: 1.05rem;
       color: var(--green-dark);
       margin: 36px 0 10px;
-      font-family: 'Nunito', sans-serif;
+      font-family: 'Playpen Sans', sans-serif;
     }
     .policy-body h2:first-of-type { margin-top: 0; }
     .policy-body p { margin-bottom: 14px; line-height: 1.75; color: var(--text); font-size: 0.95rem; }
@@ -79,27 +79,34 @@
   <!-- ===== NAVIGATION ===== -->
   <nav class="nav">
     <div class="nav-inner">
-      <a href="index.html" class="nav-logo">
+      <a href="/" class="nav-logo">
         <span class="nav-logo-text">Save Tuba</span>
       </a>
       <ul class="nav-links">
-        <li><a href="index.html#app">The App</a></li>
-        <li><a href="publications.html">Publications</a></li>
-        <li><a href="blog.html">Blog</a></li>
-        <li><a href="team.html">Team</a></li>
-        <li><a href="privacy-policy.html">Privacy Policy</a></li>
+        <li><a href="/#app" data-i18n="nav-app">The App</a></li>
+        <li><a href="../publications" data-i18n="nav-publications">Publications</a></li>
+        <li><a href="../blog" data-i18n="nav-blog">Blog</a></li>
+        <li><a href="../team" data-i18n="nav-team">Team</a></li>
+        <li><a href="../privacy-policy" data-i18n="nav-privacy">Privacy Policy</a></li>
       </ul>
 
-      <button class="nav-mobile-toggle" aria-label="Open menu">
-        <span></span><span></span><span></span>
-      </button>
+      <div class="nav-right">
+        <div class="lang-toggle">
+          <button class="lang-btn active" data-lang="en">EN</button>
+          <button class="lang-btn" data-lang="kz">KZ</button>
+          <button class="lang-btn" data-lang="ru">RU</button>
+        </div>
+        <button class="nav-mobile-toggle" aria-label="Open menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
     </div>
   </nav>
 
   <!-- ===== HERO ===== -->
   <div class="policy-hero">
-    <h1>Privacy Policy</h1>
-    <p>Last updated: May 2026</p>
+    <h1 data-i18n="page-privacy-title">Privacy Policy</h1>
+    <p data-i18n="page-privacy-updated">Last updated: May 2026</p>
   </div>
 
   <!-- ===== CONTENT ===== -->
@@ -295,10 +302,10 @@
     <div class="container">
       <div class="footer-grid">
         <div class="footer-brand">
-          <a href="index.html" class="nav-logo">
+          <a href="/" class="nav-logo">
             <span class="nav-logo-text">Save Tuba</span>
           </a>
-          <p class="footer-brand-desc">
+          <p class="footer-brand-desc" data-i18n="footer-blurb">
             A Lehigh University Global Social Impact Fellowship project, available in Kazakh, Russian, and English.
           </p>
           <div class="footer-contact">
@@ -307,21 +314,21 @@
           </div>
         </div>
         <div>
-          <div class="footer-col-title">Navigate</div>
+          <div class="footer-col-title" data-i18n="footer-nav-title">Navigate</div>
           <ul class="footer-links">
-            <li><a href="index.html#app">The App</a></li>
-            <li><a href="publications.html">Publications</a></li>
-            <li><a href="blog.html">Blog</a></li>
-            <li><a href="team.html">Team &amp; Partners</a></li>
-            <li><a href="index.html#download">Download</a></li>
+            <li><a href="/#app" data-i18n="nav-app">The App</a></li>
+            <li><a href="../publications" data-i18n="nav-publications">Publications</a></li>
+            <li><a href="../blog" data-i18n="nav-blog">Blog</a></li>
+            <li><a href="../team" data-i18n="footer-team-partners">Team &amp; Partners</a></li>
+            <li><a href="/#download" data-i18n="footer-download">Download</a></li>
           </ul>
         </div>
         <div>
-          <div class="footer-col-title">Resources</div>
+          <div class="footer-col-title" data-i18n="footer-resources-title">Resources</div>
           <ul class="footer-links">
-            <li><a href="privacy-policy.html">Privacy Policy</a></li>
-            <li><a href="https://github.com/SaveTubaTeam/saveTuba" target="_blank" rel="noopener">GitHub</a></li>
-            <li><a href="mailto:savetuba2023@gmail.com">Contact Us</a></li>
+            <li><a href="../privacy-policy" data-i18n="nav-privacy">Privacy Policy</a></li>
+
+            <li><a href="mailto:savetuba2023@gmail.com" data-i18n="footer-contact-link">Contact Us</a></li>
             <li><a href="https://www.instagram.com/save_tuba" target="_blank" rel="noopener">Instagram</a></li>
           </ul>
         </div>
@@ -329,7 +336,7 @@
       <div class="footer-bottom">
         <p>© 2026 Save Tuba. Developed by Lehigh University GSIF.</p>
         <div class="footer-bottom-links">
-          <a href="privacy-policy.html">Privacy Policy</a>
+          <a href="../privacy-policy">Privacy Policy</a>
           <a href="mailto:savetuba2023@gmail.com">Contact</a>
         </div>
       </div>
@@ -345,11 +352,12 @@
     }
   </script>
 
-<script>
-  document.querySelector('.nav-mobile-toggle').addEventListener('click', function() {
-    document.querySelector('.nav-links').classList.toggle('open');
-    this.setAttribute('aria-expanded', document.querySelector('.nav-links').classList.contains('open'));
-  });
-</script>
+  <script src="../translations.js"></script>
+  <script>
+    document.querySelector('.nav-mobile-toggle').addEventListener('click', function() {
+      document.querySelector('.nav-links').classList.toggle('open');
+      this.setAttribute('aria-expanded', document.querySelector('.nav-links').classList.contains('open'));
+    });
+  </script>
 </body>
 </html>

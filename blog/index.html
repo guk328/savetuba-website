@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blog — Save Tuba</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playpen+Sans:wght@700;800&family=Geologica:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="icon" type="image/png" href="../SaveTubaFavicon.png" />
+  <link rel="stylesheet" href="../styles.css" />
+  <style>
+    .blog-hero {
+      background: linear-gradient(145deg, var(--green-dark) 0%, var(--green-primary) 100%);
+      padding: 120px 24px 64px;
+      text-align: center;
+    }
+    .blog-hero h1 { color: var(--white); margin-bottom: 12px; }
+    .blog-hero p  { color: rgba(255,255,255,0.65); max-width: 480px; margin: 0 auto; font-size: 1rem; line-height: 1.6; }
+
+    .blog-page-section {
+      padding: 64px 24px 96px;
+      max-width: var(--max-width);
+      margin: 0 auto;
+    }
+    .blog-page-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+    }
+
+    .blog-card { cursor: pointer; }
+    .blog-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
+
+    .blog-card-img {
+      width: 100%;
+      height: 180px;
+      overflow: hidden;
+      border-radius: var(--radius-md) var(--radius-md) 0 0;
+    }
+    .blog-card-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* ── modal overlay ── */
+    .post-modal {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 1000;
+      background: rgba(17, 29, 19, 0.55);
+      backdrop-filter: blur(4px);
+      align-items: flex-start;
+      justify-content: center;
+      padding: 40px 16px;
+      overflow-y: auto;
+    }
+    .post-modal.open { display: flex; }
+
+    .post-modal-inner {
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      max-width: 720px;
+      width: 100%;
+      padding: 48px 52px;
+      position: relative;
+      margin: auto;
+    }
+
+    .post-modal-close {
+      position: absolute;
+      top: 20px;
+      right: 24px;
+      background: var(--cream);
+      border: none;
+      border-radius: 50%;
+      width: 36px;
+      height: 36px;
+      font-size: 1.2rem;
+      cursor: pointer;
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.15s;
+    }
+    .post-modal-close:hover { background: var(--cream-dark); }
+
+    .post-modal-tag {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--green-medium);
+      margin-bottom: 12px;
+    }
+    .post-modal-title {
+      font-family: 'Playpen Sans', sans-serif;
+      font-size: clamp(1.4rem, 3vw, 2rem);
+      font-weight: 900;
+      color: var(--green-dark);
+      margin-bottom: 8px;
+      line-height: 1.2;
+    }
+    .post-modal-date {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-bottom: 32px;
+      display: block;
+    }
+    .post-modal-divider {
+      border: none;
+      border-top: 1px solid var(--cream-dark);
+      margin-bottom: 32px;
+    }
+    .post-modal-body { color: var(--text); line-height: 1.8; font-size: 0.97rem; }
+    .post-modal-body p { margin-bottom: 18px; }
+    .post-modal-body h2, .post-modal-body h3 { font-family: 'Playpen Sans', sans-serif; color: var(--green-dark); margin: 28px 0 10px; }
+    .post-modal-body img { max-width: 100%; border-radius: var(--radius-sm); margin: 16px 0; }
+
+    /* ── modal lang tabs ── */
+    .post-modal-lang-tabs {
+      display: flex;
+      gap: 0;
+      margin-bottom: 32px;
+      border-bottom: 2px solid var(--cream-dark);
+    }
+    .post-modal-lang-tabs .blog-lang-tab {
+      background: none;
+      border: none;
+      border-bottom: 2px solid transparent;
+      margin-bottom: -2px;
+      padding: 8px 16px;
+      font-family: 'Playpen Sans', sans-serif;
+      font-weight: 800;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      cursor: pointer;
+      transition: color 0.15s, border-color 0.15s;
+    }
+    .post-modal-lang-tabs .blog-lang-tab:hover { color: var(--green-primary); }
+    .post-modal-lang-tabs .blog-lang-tab.active { color: var(--green-primary); border-bottom-color: var(--green-primary); }
+
+    .post-modal-content { display: none; }
+    .post-modal-content.active { display: block; }
+
+    @media (max-width: 900px) { .blog-page-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 560px) {
+      .blog-page-grid { grid-template-columns: 1fr; }
+      .post-modal-inner { padding: 32px 24px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===== NAVIGATION ===== -->
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="/" class="nav-logo">
+        <span class="nav-logo-text">Save Tuba</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="/#app" data-i18n="nav-app">The App</a></li>
+        <li><a href="../publications" data-i18n="nav-publications">Publications</a></li>
+        <li><a href="../blog" class="nav-active" data-i18n="nav-blog">Blog</a></li>
+        <li><a href="../team" data-i18n="nav-team">Team</a></li>
+        <li><a href="../privacy-policy" data-i18n="nav-privacy">Privacy Policy</a></li>
+      </ul>
+      <div class="nav-right">
+        <div class="lang-toggle">
+          <button class="lang-btn active" data-lang="en">EN</button>
+          <button class="lang-btn" data-lang="kz">KZ</button>
+          <button class="lang-btn" data-lang="ru">RU</button>
+        </div>
+        <button class="nav-mobile-toggle" aria-label="Open menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ===== HERO ===== -->
+  <div class="blog-hero">
+    <h1 data-i18n="blog-page-heading">From the Blog</h1>
+    <p data-i18n="blog-page-subheading">News, research, and updates from our team in Almaty and Bethlehem.</p>
+  </div>
+
+  <!-- ===== POSTS GRID ===== -->
+  <section class="blog-page-section">
+    <div class="blog-page-grid" id="blog-grid"></div>
+  </section>
+
+  <!-- ===== POST MODAL ===== -->
+  <div class="post-modal" id="post-modal" role="dialog" aria-modal="true">
+    <div class="post-modal-inner">
+      <button class="post-modal-close" id="modal-close" aria-label="Close">✕</button>
+      <div class="post-modal-lang-tabs" id="modal-lang-tabs"></div>
+      <div id="modal-contents"></div>
+    </div>
+  </div>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="/" class="nav-logo">
+            <span class="nav-logo-text">Save Tuba</span>
+          </a>
+          <p class="footer-brand-desc" data-i18n="footer-blurb">
+            A Lehigh University Global Social Impact Fellowship project, available in Kazakh, Russian, and English.
+          </p>
+          <div class="footer-contact">
+            <a href="mailto:savetuba2023@gmail.com">savetuba2023@gmail.com</a>
+            <a href="https://www.instagram.com/save_tuba" target="_blank" rel="noopener">@save_tuba</a>
+          </div>
+        </div>
+        <div>
+          <div class="footer-col-title" data-i18n="footer-nav-title">Navigate</div>
+          <ul class="footer-links">
+            <li><a href="/#app" data-i18n="nav-app">The App</a></li>
+            <li><a href="../publications" data-i18n="nav-publications">Publications</a></li>
+            <li><a href="../blog" data-i18n="nav-blog">Blog</a></li>
+            <li><a href="../team" data-i18n="footer-team-partners">Team &amp; Partners</a></li>
+            <li><a href="/#download" data-i18n="footer-download">Download</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-col-title" data-i18n="footer-resources-title">Resources</div>
+          <ul class="footer-links">
+            <li><a href="../privacy-policy" data-i18n="nav-privacy">Privacy Policy</a></li>
+
+            <li><a href="mailto:savetuba2023@gmail.com" data-i18n="footer-contact-link">Contact Us</a></li>
+            <li><a href="https://www.instagram.com/save_tuba" target="_blank" rel="noopener">Instagram</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 Save Tuba. Developed by Lehigh University GSIF.</p>
+        <div class="footer-bottom-links">
+          <a href="../privacy-policy">Privacy Policy</a>
+          <a href="mailto:savetuba2023@gmail.com">Contact</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../translations.js"></script>
+  <script>
+    document.querySelector('.nav-mobile-toggle').addEventListener('click', function() {
+      document.querySelector('.nav-links').classList.toggle('open');
+      this.setAttribute('aria-expanded', document.querySelector('.nav-links').classList.contains('open'));
+    });
+
+    // Posts: one object per post, with all 3 language versions
+    const posts = [
+      {
+        image: 'https://picsum.photos/seed/savetuba1/600/400',
+        en: {
+          tag: 'Update', date: 'May 2026',
+          title: 'Lorem Ipsum Dolor Sit Amet',
+          excerpt: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+          body: `<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+<h2>Duis Aute Irure Dolor</h2>
+<p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
+<h2>Nemo Enim Ipsam</h2>
+<p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet.</p>`
+        },
+        kz: {
+          tag: 'Жаңарту', date: '2026 жылдың мамыры',
+          title: 'Lorem Ipsum Dolor Sit Amet',
+          excerpt: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+          body: `<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+<h2>Duis Aute Irure Dolor</h2>
+<p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
+<h2>Nemo Enim Ipsam</h2>
+<p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet.</p>`
+        },
+        ru: {
+          tag: 'Обновление', date: 'Май 2026',
+          title: 'Lorem Ipsum Dolor Sit Amet',
+          excerpt: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+          body: `<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+<h2>Duis Aute Irure Dolor</h2>
+<p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
+<h2>Nemo Enim Ipsam</h2>
+<p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet.</p>`
+        }
+      }
+    ];
+
+    const langs = ['en', 'kz', 'ru'];
+    let activeLang = localStorage.getItem('savetuba-lang') || 'en';
+
+    // ── Modal ──
+    const modal = document.getElementById('post-modal');
+
+    function openPost(post) {
+      const tabsEl    = document.getElementById('modal-lang-tabs');
+      const contentEl = document.getElementById('modal-contents');
+      tabsEl.innerHTML    = '';
+      contentEl.innerHTML = '';
+
+      langs.forEach(l => {
+        const d = post[l];
+        const tab = document.createElement('button');
+        tab.className = 'blog-lang-tab' + (l === activeLang ? ' active' : '');
+        tab.textContent = l.toUpperCase();
+        tab.addEventListener('click', e => {
+          e.stopPropagation();
+          tabsEl.querySelectorAll('.blog-lang-tab').forEach(t => t.classList.remove('active'));
+          contentEl.querySelectorAll('.post-modal-content').forEach(c => c.classList.remove('active'));
+          tab.classList.add('active');
+          contentEl.querySelector(`[data-lang="${l}"]`).classList.add('active');
+        });
+        tabsEl.appendChild(tab);
+
+        const section = document.createElement('div');
+        section.className = 'post-modal-content' + (l === activeLang ? ' active' : '');
+        section.dataset.lang = l;
+        section.innerHTML = `
+          <span class="post-modal-tag">${d.tag}</span>
+          <h2 class="post-modal-title">${d.title}</h2>
+          <span class="post-modal-date">${d.date}</span>
+          <hr class="post-modal-divider">
+          <div class="post-modal-body">${d.body}</div>
+        `;
+        contentEl.appendChild(section);
+      });
+
+      modal.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal() {
+      modal.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    document.getElementById('modal-close').addEventListener('click', closeModal);
+    modal.addEventListener('click', e => { if (e.target === modal) closeModal(); });
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+
+    // ── Cards ──
+    const grid = document.getElementById('blog-grid');
+
+    function renderCards() {
+      grid.innerHTML = '';
+      posts.forEach(post => {
+        const d = post[activeLang] || post.en;
+        const card = document.createElement('article');
+        card.className = 'blog-card';
+        card.innerHTML = `
+          <div class="blog-card-img">
+            <img src="${post.image}" alt="${d.title}" loading="lazy">
+          </div>
+          <div class="blog-card-body">
+            <span class="blog-tag">${d.tag}</span>
+            <h3>${d.title}</h3>
+            <p>${d.excerpt}</p>
+            <div class="blog-card-footer">
+              <span class="blog-date">${d.date}</span>
+              <span class="blog-read-more">Read more →</span>
+            </div>
+          </div>
+        `;
+        card.addEventListener('click', () => openPost(post));
+        grid.appendChild(card);
+      });
+    }
+
+    // Re-render cards and sync open modal when nav lang toggle is used
+    const _origSetLanguage = window.setLanguage;
+    window.setLanguage = function(lang) {
+      _origSetLanguage(lang);
+      activeLang = lang;
+      renderCards();
+      if (modal.classList.contains('open')) {
+        document.querySelectorAll('#modal-lang-tabs .blog-lang-tab').forEach(t => t.classList.toggle('active', t.dataset.lang === lang));
+        document.querySelectorAll('#modal-contents .post-modal-content').forEach(c => c.classList.toggle('active', c.dataset.lang === lang));
+      }
+    };
+
+    renderCards();
+  </script>
+
+</body>
+</html>

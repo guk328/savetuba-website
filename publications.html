@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Publications — Save Tuba</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@700;800;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="icon" type="image/png" href="SaveTubaFavicon.png" />
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    .pub-hero {
+      background: linear-gradient(145deg, var(--green-dark) 0%, var(--green-primary) 100%);
+      padding: 120px 24px 64px;
+      text-align: center;
+    }
+    .pub-hero h1 { color: var(--white); margin-bottom: 12px; }
+    .pub-hero p  { color: rgba(255,255,255,0.65); max-width: 520px; margin: 0 auto; font-size: 1rem; line-height: 1.6; }
+
+    .pub-body {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 72px 24px 0;
+    }
+
+    /* ── section label ── */
+    .pub-section-label {
+      display: inline-block;
+      font-size: 0.78rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--green-medium);
+      margin-bottom: 28px;
+    }
+
+    /* ── paper list ── */
+    .paper-list {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      margin-bottom: 96px;
+    }
+
+    .paper-card {
+      border: 1px solid var(--cream-dark);
+      border-radius: var(--radius-md);
+      padding: 24px 28px;
+      background: var(--white);
+    }
+
+    .paper-meta {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 10px;
+      flex-wrap: wrap;
+    }
+    .paper-venue {
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+      color: var(--green-medium);
+      background: var(--green-pale);
+      padding: 3px 10px;
+      border-radius: 100px;
+    }
+    .paper-year {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      font-weight: 600;
+    }
+    .paper-status {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      background: var(--cream-dark);
+      padding: 3px 10px;
+      border-radius: 100px;
+      font-style: italic;
+    }
+
+    .paper-title {
+      font-family: 'Nunito', sans-serif;
+      font-weight: 800;
+      font-size: 1.05rem;
+      color: var(--green-dark);
+      margin-bottom: 6px;
+      line-height: 1.4;
+    }
+    .paper-authors {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-bottom: 12px;
+    }
+
+    .paper-abstract-toggle {
+      background: none;
+      border: none;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--green-primary);
+      cursor: pointer;
+      padding: 0;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: color 0.15s;
+    }
+    .paper-abstract-toggle:hover { color: var(--green-dark); }
+    .paper-abstract-toggle .arrow { transition: transform 0.2s; display: inline-block; }
+    .paper-abstract-toggle.open .arrow { transform: rotate(90deg); }
+
+    .paper-abstract {
+      display: none;
+      margin-top: 14px;
+      font-size: 0.88rem;
+      color: var(--text);
+      line-height: 1.75;
+      border-left: 3px solid var(--green-pale);
+      padding-left: 16px;
+    }
+    .paper-abstract.open { display: block; }
+
+    .paper-actions {
+      display: flex;
+      gap: 12px;
+      margin-top: 16px;
+      flex-wrap: wrap;
+    }
+    .paper-link {
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--green-primary);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .paper-link:hover { color: var(--green-dark); text-decoration: underline; }
+
+    /* ── checkerboard blurbs ── */
+    .blurb-section {
+      padding: 0 0 96px;
+    }
+    .blurb-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      margin-bottom: 4px;
+    }
+    .blurb-row:last-child { margin-bottom: 0; }
+
+    .blurb-text {
+      background: var(--cream);
+      padding: 64px 56px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .blurb-text h2 {
+      font-size: clamp(1.3rem, 2.5vw, 1.7rem);
+      color: var(--green-dark);
+      margin-bottom: 16px;
+    }
+    .blurb-text p {
+      font-size: 0.97rem;
+      color: var(--text);
+      line-height: 1.8;
+    }
+
+    .blurb-image {
+      background: var(--green-pale);
+      min-height: 360px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+    .blurb-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .blurb-image-placeholder {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+      color: var(--green-light);
+      font-size: 0.82rem;
+    }
+    .blurb-image-placeholder svg {
+      width: 40px;
+      height: 40px;
+      fill: var(--green-light);
+      opacity: 0.6;
+    }
+
+    /* checkerboard: odd rows = text left, even = text right */
+    .blurb-row:nth-child(even) .blurb-text  { order: 2; }
+    .blurb-row:nth-child(even) .blurb-image { order: 1; }
+
+    @media (max-width: 768px) {
+      .blurb-row { grid-template-columns: 1fr; }
+      .blurb-row:nth-child(even) .blurb-text  { order: 2; }
+      .blurb-row:nth-child(even) .blurb-image { order: 1; }
+      .blurb-text { padding: 40px 28px; }
+      .blurb-image { min-height: 240px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===== NAVIGATION ===== -->
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">
+        <span class="nav-logo-text">Save Tuba</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html#app">The App</a></li>
+        <li><a href="publications.html" class="nav-active">Publications</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="team.html">Team</a></li>
+        <li><a href="privacy-policy.html">Privacy Policy</a></li>
+      </ul>
+
+      <button class="nav-mobile-toggle" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ===== HERO ===== -->
+  <div class="pub-hero">
+    <h1>Publications</h1>
+    <p>Peer-reviewed research and design thinking behind Save Tuba.</p>
+  </div>
+
+  <div class="pub-body">
+
+    <!-- ===== PAPERS ===== -->
+    <span class="pub-section-label">Peer-Reviewed Conference Proceedings</span>
+    <div class="paper-list">
+
+      <div class="paper-card">
+        <div class="paper-meta">
+          <span class="paper-venue">IEEE GHTC</span>
+          <span class="paper-year">2023</span>
+        </div>
+        <div class="paper-title">How Teacher Feedback Helped Reimagine, Redesign, and Recode a Sustainability Education App</div>
+        <div class="paper-authors">A. Gavade et al. — IEEE Global Humanitarian Technology Conference, Santa Clara, CA, USA</div>
+        <div class="paper-actions">
+          <a href="https://www.researchgate.net/publication/376699526_How_Teacher_Feedback_Helped_Reimagine_Redesign_and_Recode_a_Sustainability_Education_App" target="_blank" rel="noopener" class="paper-link">ResearchGate ↗</a>
+        </div>
+      </div>
+
+      <div class="paper-card">
+        <div class="paper-meta">
+          <span class="paper-venue">IEEE GHTC</span>
+          <span class="paper-year">2023</span>
+        </div>
+        <div class="paper-title">Save Tuba: A Gamified Approach to Fostering Sustainable Habits</div>
+        <div class="paper-authors">A. F. Santana et al. — IEEE Global Humanitarian Technology Conference, Santa Clara, CA, USA</div>
+      </div>
+
+      <div class="paper-card">
+        <div class="paper-meta">
+          <span class="paper-venue">IEEE GHTC</span>
+          <span class="paper-year">2022</span>
+        </div>
+        <div class="paper-title">Save Tuba: A Gamified App for Children to Explore Environmental Issues and Develop Sustainable Behaviors</div>
+        <div class="paper-authors">A. F. Santana et al. — IEEE Global Humanitarian Technology Conference, Santa Clara, CA, USA, 2022, pp. 299–306</div>
+        <div class="paper-actions">
+          <a href="https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=9911044&isnumber=9910605" target="_blank" rel="noopener" class="paper-link">IEEE Xplore ↗</a>
+          <a href="https://www.researchgate.net/publication/364559269_Save_Tuba_A_Gamified_App_for_Children_to_Explore_Environmental_Issues_and_Develop_Sustainable_Behaviors" target="_blank" rel="noopener" class="paper-link">ResearchGate ↗</a>
+        </div>
+      </div>
+
+      <div class="paper-card">
+        <div class="paper-meta">
+          <span class="paper-venue">IEEE GHTC</span>
+          <span class="paper-year">2020</span>
+        </div>
+        <div class="paper-title">Smart City Innovations to Improve Quality of Life in Urban Settings</div>
+        <div class="paper-authors">T. Persaud, U. Amadi, A. Duane, B. Youhana and K. Mehta — IEEE Global Humanitarian Technology Conference, Seattle, WA, USA, 2020, pp. 1–8</div>
+        <div class="paper-actions">
+          <a href="https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=9342905&isnumber=9342622" target="_blank" rel="noopener" class="paper-link">IEEE Xplore ↗</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ===== CHECKERBOARD BLURBS ===== -->
+  <section class="blurb-section">
+
+    <div class="blurb-row">
+      <div class="blurb-text">
+        <h2>A Gamified Approach &amp; Influential Storyline</h2>
+        <p>The design of Save Tuba focuses on the employment of gamification to build digital games and immersive worlds where children not only learn key concepts, but practice sustainability. In doing so, they develop the kinds of behaviors, habits, and mindsets that will serve them for life. Empathy is a driving force for change and is encouraged through engaging storytelling and emotional engagement.</p>
+      </div>
+      <div class="blurb-image">
+        <img src="images/publications/501c5-children-1822559-2.webp" alt="Children learning">
+      </div>
+    </div>
+
+    <div class="blurb-row">
+      <div class="blurb-text">
+        <h2>Cross-Generational Change</h2>
+        <p>To create lasting impact, a focus on creating behavioral change is imperative to foster a community of sustainability-conscious Kazakhs. The country's recent realization of the need for change and education is an opportunity to start from the ground up with Kazakhstan's youngest citizens. Educating children about sustainability education and developing habits earlier rather than later will produce a longer lasting impact.</p>
+      </div>
+      <div class="blurb-image">
+        <img src="images/publications/3ae02-kids-5426102-1.webp" alt="Children learning">
+      </div>
+    </div>
+
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="nav-logo">
+            <span class="nav-logo-text">Save Tuba</span>
+          </a>
+          <p class="footer-brand-desc">
+            A Lehigh University Global Social Impact Fellowship project, available in Kazakh, Russian, and English.
+          </p>
+          <div class="footer-contact">
+            <a href="mailto:savetuba2023@gmail.com">savetuba2023@gmail.com</a>
+            <a href="https://www.instagram.com/save_tuba" target="_blank" rel="noopener">@save_tuba</a>
+          </div>
+        </div>
+        <div>
+          <div class="footer-col-title">Navigate</div>
+          <ul class="footer-links">
+            <li><a href="index.html#app">The App</a></li>
+            <li><a href="publications.html">Publications</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="team.html">Team &amp; Partners</a></li>
+            <li><a href="index.html#download">Download</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-col-title">Resources</div>
+          <ul class="footer-links">
+            <li><a href="privacy-policy.html">Privacy Policy</a></li>
+            <li><a href="https://github.com/SaveTubaTeam/saveTuba" target="_blank" rel="noopener">GitHub</a></li>
+            <li><a href="mailto:savetuba2023@gmail.com">Contact Us</a></li>
+            <li><a href="https://www.instagram.com/save_tuba" target="_blank" rel="noopener">Instagram</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 Save Tuba. Developed by Lehigh University GSIF.</p>
+        <div class="footer-bottom-links">
+          <a href="privacy-policy.html">Privacy Policy</a>
+          <a href="mailto:savetuba2023@gmail.com">Contact</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.querySelector('.nav-mobile-toggle').addEventListener('click', function() {
+      document.querySelector('.nav-links').classList.toggle('open');
+      this.setAttribute('aria-expanded', document.querySelector('.nav-links').classList.contains('open'));
+    });
+
+    function toggleAbstract(btn) {
+      btn.classList.toggle('open');
+      btn.nextElementSibling.classList.toggle('open');
+    }
+  </script>
+
+</body>
+</html>

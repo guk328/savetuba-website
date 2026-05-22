@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Team — Save Tuba</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@700;800;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="icon" type="image/png" href="SaveTubaFavicon.png" />
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    .team-hero {
+      background: linear-gradient(145deg, var(--green-dark) 0%, var(--green-primary) 100%);
+      padding: 120px 24px 64px;
+      text-align: center;
+    }
+    .team-hero h1 { color: var(--white); margin-bottom: 12px; }
+    .team-hero p { color: rgba(255,255,255,0.65); max-width: 480px; margin: 0 auto; font-size: 1rem; line-height: 1.6; }
+
+    .team-section {
+      padding: 80px 24px 96px;
+    }
+    .team-container {
+      max-width: var(--max-width);
+      margin: 0 auto;
+    }
+
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+    }
+
+    .member-card {
+      background: var(--white);
+      border: 1px solid var(--cream-dark);
+      border-radius: var(--radius-md);
+      padding: 36px 24px 28px;
+      text-align: center;
+    }
+
+    .member-photo {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      background: var(--green-pale);
+      margin: 0 auto 20px;
+      overflow: hidden;
+      border: 3px solid var(--cream-dark);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .member-photo svg {
+      width: 56px;
+      height: 56px;
+      fill: var(--green-light);
+    }
+    .member-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .member-name {
+      font-family: 'Nunito', sans-serif;
+      font-weight: 900;
+      font-size: 1.1rem;
+      color: var(--green-dark);
+      margin-bottom: 4px;
+    }
+    .member-role {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--green-medium);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-bottom: 12px;
+    }
+    .member-bio {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    @media (max-width: 768px) {
+      .team-grid { grid-template-columns: repeat(2, 1fr); gap: 20px; }
+    }
+    @media (max-width: 480px) {
+      .team-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===== NAVIGATION ===== -->
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">
+        <span class="nav-logo-text">Save Tuba</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html#app">The App</a></li>
+        <li><a href="publications.html">Publications</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="team.html" class="nav-active">Team</a></li>
+        <li><a href="privacy-policy.html">Privacy Policy</a></li>
+      </ul>
+
+      <button class="nav-mobile-toggle" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ===== HERO ===== -->
+  <div class="team-hero">
+    <h1>Meet the Team</h1>
+  </div>
+
+  <!-- ===== TEAM GRID ===== -->
+  <section class="team-section">
+    <div class="team-container">
+      <div class="team-grid">
+
+        <div class="member-card">
+          <div class="member-photo"><img src="images/team/IsabelleMarquis.jpg" alt="Isabelle Marquis"></div>
+          <div class="member-name">Isabelle Marquis</div>
+          <div class="member-role">Research Lead</div>
+        </div>
+
+        <div class="member-card">
+          <div class="member-photo"><img src="images/team/AhmadSuleiman.jpg" alt="Ahmad Suleiman"></div>
+          <div class="member-name">Ahmad Suleiman</div>
+          <div class="member-role">Business Lead</div>
+        </div>
+
+        <div class="member-card">
+          <div class="member-photo"><img src="images/team/GuranaadKaur.png" alt="Guranaad Kaur"></div>
+          <div class="member-name">Guranaad Kaur</div>
+          <div class="member-role">Tech Lead</div>
+        </div>
+
+        <div class="member-card">
+          <div class="member-photo"><img src="images/team/AlnurSagat.jpg" alt="Alnur Sagat"></div>
+          <div class="member-name">Alnur Sagat</div>
+          <div class="member-role">Continuing Fellow</div>
+        </div>
+
+        <div class="member-card">
+          <div class="member-photo"><img src="images/team/SeanVassilaros.jpg" alt="Sean Vassilaros"></div>
+          <div class="member-name">Sean Vassilaros</div>
+          <div class="member-role">Faculty Advisor</div>
+        </div>
+
+        <div class="member-card">
+          <div class="member-photo"><img src="images/team/KhanjanMehta.jpeg" alt="Khanjan Mehta"></div>
+          <div class="member-name">Khanjan Mehta</div>
+          <div class="member-role">Faculty Advisor</div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="nav-logo">
+            <span class="nav-logo-text">Save Tuba</span>
+          </a>
+          <p class="footer-brand-desc">
+            A Lehigh University Global Social Impact Fellowship project, available in Kazakh, Russian, and English.
+          </p>
+          <div class="footer-contact">
+            <a href="mailto:savetuba2023@gmail.com">savetuba2023@gmail.com</a>
+            <a href="https://www.instagram.com/save_tuba" target="_blank" rel="noopener">@save_tuba</a>
+          </div>
+        </div>
+        <div>
+          <div class="footer-col-title">Navigate</div>
+          <ul class="footer-links">
+            <li><a href="index.html#app">The App</a></li>
+            <li><a href="publications.html">Publications</a></li>
+            <li><a href="https://savetuba.com/blogs/" target="_blank" rel="noopener">Blog</a></li>
+            <li><a href="team.html">Team &amp; Partners</a></li>
+            <li><a href="index.html#download">Download</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-col-title">Resources</div>
+          <ul class="footer-links">
+            <li><a href="privacy-policy.html">Privacy Policy</a></li>
+            <li><a href="https://github.com/SaveTubaTeam/saveTuba" target="_blank" rel="noopener">GitHub</a></li>
+            <li><a href="mailto:savetuba2023@gmail.com">Contact Us</a></li>
+            <li><a href="https://www.instagram.com/save_tuba" target="_blank" rel="noopener">Instagram</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 Save Tuba. Developed by Lehigh University GSIF.</p>
+        <div class="footer-bottom-links">
+          <a href="privacy-policy.html">Privacy Policy</a>
+          <a href="mailto:savetuba2023@gmail.com">Contact</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+<script>
+  document.querySelector('.nav-mobile-toggle').addEventListener('click', function() {
+    document.querySelector('.nav-links').classList.toggle('open');
+    this.setAttribute('aria-expanded', document.querySelector('.nav-links').classList.contains('open'));
+  });
+</script>
+</body>
+</html>

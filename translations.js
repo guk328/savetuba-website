@@ -39,6 +39,9 @@ const translations = {
     'screen1-label': 'Choose the Answer',
     'screen2-label': 'Matching Game',
     'screen3-label': 'Mastery Challenge',
+    'screen1-src': 'images/screenshots/Sorting.png',
+    'screen2-src': 'images/screenshots/Memory.png',
+    'screen3-src': 'images/screenshots/Mastery.png',
 
     // How it works
     'how-heading': 'How It Works',
@@ -147,6 +150,9 @@ const translations = {
     'screen1-label': 'Жауапты таңдаңыз',
     'screen2-label': 'Сәйкестендіру ойыны',
     'screen3-label': 'Шеберлік тапсырмасы',
+    'screen1-src': 'images/screenshots/SortingKZ.jpeg',
+    'screen2-src': 'images/screenshots/MemoryKZ.jpeg',
+    'screen3-src': 'images/screenshots/MasteryKZ.jpeg',
 
     // How it works
     'how-heading': 'Қалай жұмыс істейді',
@@ -255,6 +261,9 @@ const translations = {
     'screen1-label': 'Выберите ответ',
     'screen2-label': 'Игра на соответствие',
     'screen3-label': 'Задание на мастерство',
+    'screen1-src': 'images/screenshots/SortingRU.jpeg',
+    'screen2-src': 'images/screenshots/MemoryRU.jpeg',
+    'screen3-src': 'images/screenshots/MasteryRU.jpeg',
 
     // How it works
     'how-heading': 'Как это работает',
@@ -300,10 +309,10 @@ const translations = {
     // Team page
     'team-heading': 'Познакомьтесь с командой',
     'role-research': 'Руководитель исследований',
-    'role-business': 'Бизнес-лидер',
+    'role-business': 'Руководитель по развитию',
     'role-tech': 'Технический руководитель',
-    'role-fellow': 'Продолжающий стипендиат',
-    'role-advisor': 'Научный руководитель',
+    'role-fellow': 'Научный куратор',
+    'role-advisor': 'Главный научный руководитель', 
 
     // Publications page
     'pub-heading': 'Публикации',
@@ -332,6 +341,14 @@ function setLanguage(lang) {
     const key = el.getAttribute('data-i18n');
     if (translations[lang][key] !== undefined) {
       el.textContent = translations[lang][key];
+    }
+  });
+
+  // Image src elements
+  document.querySelectorAll('[data-i18n-src]').forEach(el => {
+    const key = el.getAttribute('data-i18n-src');
+    if (translations[lang][key] !== undefined) {
+      el.src = translations[lang][key];
     }
   });
 

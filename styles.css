@@ -1020,8 +1020,9 @@ h3 { font-size: clamp(1.1rem, 2vw, 1.4rem); }
 
   .features-grid { grid-template-columns: 1fr; }
 
-  .screenshots-row { gap: 16px; }
-  .phone-frame { width: 180px; }
+  .screenshots-tuba { height: 300px; }
+  .screenshots-row { gap: 12px; }
+  .phone-frame { width: 155px; }
 
   .steps { grid-template-columns: 1fr; gap: 40px; }
   .steps::before { display: none; }
@@ -1050,14 +1051,28 @@ h3 { font-size: clamp(1.1rem, 2vw, 1.4rem); }
 
   .problem-callout { flex-direction: column; text-align: center; padding: 28px 24px; }
 
+  .screenshots-tuba { display: none; }
+
+  .screenshots-row-wrap {
+    width: 100%;
+    overflow: hidden;
+  }
+
   .screenshots-row {
+    width: 100%;
     overflow-x: auto;
-    padding-bottom: 16px;
+    padding: 0 24px 16px;
     justify-content: flex-start;
     -webkit-overflow-scrolling: touch;
     scrollbar-width: none;
+    scroll-snap-type: x mandatory;
   }
   .screenshots-row::-webkit-scrollbar { display: none; }
+
+  .phone-frame {
+    width: 160px;
+    scroll-snap-align: start;
+  }
 
   .phone-frame:nth-child(2) { transform: none; }
 
